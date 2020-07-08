@@ -16,6 +16,7 @@
     <!-- Javascript for bot -->
     <script type="text/javascript" src="app.js"></script>
     <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
+    <script type="text/javascript" src="https://thecraftyrobot.github.io/smartibot_webpad/js/puck.js"></script>
   </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light navbar-play" style="background: #521E69;">
@@ -47,7 +48,7 @@
         <form class="form-inline justify-content-center" role="form"/>
           <label class="sr-only" for="botName">Enter Your Access Key</label>
           <input type="text" class="form-control mb-2 mr-sm-2 enter" id="keyName" placeholder="Enter Key">
-          <input id="AutoPop" class="btn btn-warning mb-2" type="button" value="Connect" onclick="connect();" />
+          <input id="AutoPop" class="btn btn-warning mb-2" type="button" value="Connect" onclick="connect(); Puck.write('digitalWrite(D4, 0);\n analogWrite(D6, 0.0);\n digitalWrite(D11, 0);\n analogWrite(D10, 0.0);\n');" />
         </form>
 
       </div>

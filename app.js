@@ -136,15 +136,23 @@ function csGetMessage(message){
       if(message.data == "!"){
          console.log("Execute Stop");
       }else if(message.data == "F"){
+          Puck.write('go("F");\n');
          console.log("Forward Increment");
       }else if(message.data == "B"){
+        Puck.write('go("B");\n');
          console.log("Reverse Inrement");
       }else if(message.data == "R"){
+        Puck.write('go("R");\n');
          console.log("Right Increment");
       }else if(message.data == "L"){
+        Puck.write('go("L");\n');
          console.log("Left Increment");
       }else if(message.data == "O"){
+	Puck.write('go("LD");\n');
          console.log("Boost");
+      }else if(message.data == "U"){
+	Puck.write('go("LU");\n');
+         console.log("Up");
       }
    }
 }

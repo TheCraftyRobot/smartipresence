@@ -48,7 +48,7 @@
         <form class="form-inline justify-content-center" role="form"/>
           <label class="sr-only" for="botName">Enter Your Access Key</label>
           <input type="text" class="form-control mb-2 mr-sm-2 enter" id="keyName" placeholder="Enter Key">
-          <input id="AutoPop" class="btn btn-warning mb-2" type="button" value="Connect" onclick="connect();" />
+          <input id="AutoPop" class="btn btn-warning mb-2" type="button" value="Connect" onclick="connect(); Puck.write('digitalWrite(D4, 0);\n analogWrite(D6, 0.0);\n digitalWrite(D11, 0);\n analogWrite(D10, 0.0);\n');" />
         </form>
 
       </div>
@@ -112,7 +112,7 @@ $(document).ready(function(){
     }
     console.log("scrolling")
     window.scrollTo(0,document.body.scrollHeight);
-    Puck.write('digitalWrite(D4, 0);\n analogWrite(D6, 0.0);\n digitalWrite(D11, 0);\n analogWrite(D10, 0.0);\n');
+    
   });
 });
 </script>

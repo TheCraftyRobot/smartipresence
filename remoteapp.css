@@ -1,4 +1,4 @@
-body, html {
+bebody, html {
     background-color: gray;
     height: 100%;
 }
@@ -12,9 +12,9 @@ body, html {
 }
 
 #subscriber {
-    position: absolute;
-    left: 0;
-    top: 0;
+    position: relative;
+    left: 50%;
+    top: 50%;
     width: 100%;
     height: 100%;
     z-index: 100;

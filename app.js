@@ -147,7 +147,7 @@ function csGetMessage(message){
       }else if(message.data == "L"){
         Puck.write('go("L");\n');
          console.log("Left Increment");
-      }else if(message.data == "O"){
+      }else if(message.data == "D"){
 	Puck.write('go("LD");\n');
          console.log("Boost");
       }else if(message.data == "U"){
@@ -189,7 +189,7 @@ function initializeSession() {
   session.on('streamCreated', function(event) {
 	  session.subscribe(event.stream, 'subscriber', {
 	    insertMode: 'append',
-	    width: '100%',
+	    width: '75%',
 	    height: '100%'
 	  }, handleError);
 	});

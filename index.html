@@ -40,11 +40,11 @@
 
   <div class="aw-sec4_1" id="form-section">
     <div class="text-center">
-      <p class="aw-title1">Please Enter an Access Key!</p>
+      <p class="aw-title1">Please Enter an Access Code:</p>
         <form class="form-inline justify-content-center" role="form"/>
           <label class="sr-only" for="botName">Please Enter Access Code:</label>
           <input type="text" class="form-control mb-2 mr-sm-2 enter" id="keyName" placeholder="Access Code Here">
-          <input id="AutoPop" class="btn btn-warning mb-2" type="button" value="Put Bot Online" onclick="connect(); Puck.write('digitalWrite(D4, 0);\n analogWrite(D6, 0.0);\n digitalWrite(D11, 0);\n analogWrite(D10, 0.0);\n');" />
+          <input id="AutoPop" class="btn btn-warning mb-2" type="button" value="Put Bot Online" onclick="connect(); Puck.write('digitalWrite(D4, 0);\n analogWrite(D6, 0.0);\n digitalWrite(D11, 0);\n analogWrite(D10, 0.0);\n load();\n');" />
         </form>
 
       </div>

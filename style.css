@@ -92,7 +92,7 @@ body  {
 		border-left: 2px solid rgba(255, 255, 255, .15);
 	}
 	#videos{
-	height 50%;
+	height: 50%;
 	left: 2%;
 	top: 2%;
 	}
@@ -118,7 +118,7 @@ body  {
 		order: 3;
 	}
 	#videos{
-	left: 15%;
+	left: 50%;
 	bottom: 2%
 	}
 }

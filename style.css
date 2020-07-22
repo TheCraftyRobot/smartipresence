@@ -86,9 +86,6 @@ body  {
 		height: 50vh;
 	}
 	.box.screen {
-		height: 8vh;
-	}
-	.box.preview {
 		height: 50vh;
 	}
 	.brl {
@@ -102,9 +99,6 @@ body  {
 	}
 	.box.screen {
 		height: 100vh;
-	}
-	.box.preview {
-	height: 16vh;
 	}
 	.box:nth-child(1) {
 		flex: 1 0 65%;

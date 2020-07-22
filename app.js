@@ -147,21 +147,29 @@ function csGetMessage(message){
    if(message.data == "Hrt"){
       csSendMessage("Hrt" + ","+  "Ross");
    }else if(message.data == "-"){
-      //console.log("just a nothing");
+      console.log("just a nothing");
    }else{
       console.log("Its a real user command! do something with it here.");
       if(message.data == "!"){
-         //console.log("Execute Stop");
+         console.log("Execute Stop");
       }else if(message.data == "F"){
-         //console.log("Forward Increment");
+          Puck.write('go("F");\n');
+         console.log("Forward Increment");
       }else if(message.data == "B"){
-         //console.log("Reverse Inrement");
+        Puck.write('go("B");\n');
+         console.log("Reverse Inrement");
       }else if(message.data == "R"){
-         //console.log("Right Increment");
+        Puck.write('go("R");\n');
+         console.log("Right Increment");
       }else if(message.data == "L"){
-         //console.log("Left Increment");
-      }else if(message.data == "O"){
-         //console.log("Boost");
+        Puck.write('go("L");\n');
+         console.log("Left Increment");
+      }else if(message.data == "D"){
+	Puck.write('go("LD");\n');
+         console.log("Boost");
+      }else if(message.data == "U"){
+	Puck.write('go("LU");\n');
+         console.log("Up");
       }
    }
 }

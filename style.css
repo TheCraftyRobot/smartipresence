@@ -93,7 +93,7 @@ body  {
 	}
 	#videos{
 	left: 2%;
-	bottom: 52%
+	top: 2%
 	}
 
 }
@@ -117,7 +117,7 @@ body  {
 		order: 3;
 	}
 	#videos{
-	left: 17%;
+	left: 16%;
 	bottom: 2%
 	}
 }

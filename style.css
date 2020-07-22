@@ -121,7 +121,7 @@ body  {
 	#videos{
 	left: 2%;
 	bottom: 52%;
-	height: 50%;
+	height: 50vh;
 	}
 
 }
@@ -145,7 +145,7 @@ body  {
 		order: 3;
 	}
 	#videos{
-	left: 20%;
+	left: 15%;
 	bottom: 2%;
 	}
 }

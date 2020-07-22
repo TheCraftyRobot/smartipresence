@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Drive SmartiBot!</title>
+    <title>Drive Smartipresence!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -16,12 +16,13 @@
     <!-- Javascript for bot -->
     <script type="text/javascript" src="app.js"></script>
     <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
+    <script type="text/javascript" src="https://thecraftyrobot.github.io/smartibot_webpad/js/puck.js"></script>
   </head>
   <body onload="populate()">
 <body>
   <nav class="navbar navbar-expand-lg navbar-light navbar-play" style="background: #521E69;">
     <a class="navbar-brand" href="#" style="color: #ed771e;">
-      The Crafty Robot
+      Smartipresence [BETA]
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -43,12 +44,12 @@
       <div class="clearfix"></div><br/>
       <div class="container">
         <img src="./crafty_robot.png" id="Status">
-        <p class="aw-title1">Your Access Key goes here:</p>
+        <p class="aw-title1">Please Enter Your Access Key:</p>
         <div class="clearfix"></div><br/>
         <form class="form-inline justify-content-center" role="form"/>
-          <label class="sr-only" for="botName">Enter Your Access Key</label>
+          <label class="sr-only" for="botName">Pleaae Enter Your Access Key</label>
           <input type="text" class="form-control mb-2 mr-sm-2 enter" id="keyName" placeholder="Enter Key">
-          <input id="AutoPop" class="btn btn-warning mb-2" type="button" value="Connect" onclick="connect();" />
+          <input id="AutoPop" class="btn btn-warning mb-2" type="button" value="Connect" onclick="connect(); Puck.write('digitalWrite(D4, 0);\n analogWrite(D6, 0.0);\n digitalWrite(D11, 0);\n analogWrite(D10, 0.0);\n load();\n');" />
           <br>
           <input id="WebShare" class="btn btn-link mb-2" type="button" value="Send a Pilot Link!"  />
         </form>

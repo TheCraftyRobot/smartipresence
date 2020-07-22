@@ -91,6 +91,10 @@ body  {
 	.brl {
 		border-left: 2px solid rgba(255, 255, 255, .15);
 	}
+	#videos{
+	left: 2%;
+	bottom: 52%
+	}
 
 }
 @media screen and (orientation:landscape) {
@@ -112,6 +116,10 @@ body  {
 		flex: 1 0 10%;
 		order: 3;
 	}
+	#videos{
+	left: 17%;
+	bottom: 2%
+	}
 }
 
 #subscriber {
@@ -125,8 +133,6 @@ body  {
     position: relative;
     width: 100%;
     height: 100%;
-left: 35%;
-bottom: 2%;
     margin-left: auto;
     margin-right: auto;
 }

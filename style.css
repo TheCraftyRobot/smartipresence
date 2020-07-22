@@ -1,3 +1,30 @@
+#subscriber {
+    width: 100%;
+    height: 50;
+    z-index: 10;
+	padding:0 5px;
+}
+
+#videos {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#publisher {
+    position: absolute;
+    width: 180px;
+    height: 120px;
+    bottom: 10px;
+    left: 10px;
+    z-index: 20;
+    border: 3px solid white;
+    border-radius: 3px;
+}
+
+
 :root {
   /*--clr-p: #ed771e;*/
   --clr-p: #510168;
@@ -94,6 +121,7 @@ body  {
 	#videos{
 	left: 2%;
 	bottom: 52%;
+	height: 50%;
 	}
 
 }
@@ -120,30 +148,4 @@ body  {
 	left: 20%;
 	bottom: 2%;
 	}
-}
-
-#subscriber {
-    width: 100%;
-    height: 50;
-    z-index: 10;
-	padding:0 5px;
-}
-
-#videos {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#publisher {
-    position: absolute;
-    width: 180px;
-    height: 120px;
-    bottom: 10px;
-    left: 10px;
-    z-index: 20;
-    border: 3px solid white;
-    border-radius: 3px;
 }

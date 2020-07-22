@@ -38,16 +38,20 @@ function updateBotname(){
       connBotName = bname;
    }else{
       console.log("failure getting param!");
-      connBotName = "take2";//ull take2nlikeit
+      connBotName = "take2";
    }
 }
 
 
 var message = document.getElementById("message");
+function formConn(){
 webSocket.onopen = function(message){ wsOpen(message);};
 webSocket.onmessage = function(message){ wsGetMessage(message);};
 webSocket.onclose = function(message){ wsClose(message);};
 webSocket.onerror = function(message){ wsError(message);};
+}
+
+formConn();
 
 function initializeSession(sessionIdVal, tokenVal, napiKey) {
 //	echoText.value += "init session \n";
@@ -62,17 +66,15 @@ function initializeSession(sessionIdVal, tokenVal, napiKey) {
 	});
 
   // Connect to the session
- // echoText.value += "connext \n";
  session.connect(tokenVal, function(error) {
 
  });
- //echoText.value += "conext 2urmom\n";
+
 }
 
 function inititalizeAudioSession(sessionIdVal, tokenVal, napiKey, audioPubVal) {
-   //TODO: i think i cn just pass in different tokens n use the same method as regular init?
-   //this is called if a bot allows inbound audio from a user.
-//	echoText.value += "init session \n";
+
+
   var session = OT.initSession(napiKey, sessionIdVal);
   // Subscribe to a newly created stream for bot reconnect
   session.on('streamCreated', function(event) {
@@ -82,15 +84,14 @@ function inititalizeAudioSession(sessionIdVal, tokenVal, napiKey, audioPubVal) {
 	    height: '100%'
 	  }, handleError);
 	});
-   // Create a publisher
+
  var publisher = OT.initPublisher('publisher', {
    insertMode: 'append',
    width: '100%',
    height: '100%'
  }, handleError);
   publisher.publishVideo(true);
-  // Connect to the session
- // echoText.value += "connext \n";
+
  session.connect(audioPubVal, function(error) {
     // If the connection is successful, publish to the session
     if (error) {
@@ -99,7 +100,7 @@ function inititalizeAudioSession(sessionIdVal, tokenVal, napiKey, audioPubVal) {
       session.publish(publisher, handleError);
     }
  });
- //echoText.value += "conext 2urmom\n";
+
 }
 
 function wsOpen(message){
@@ -141,7 +142,6 @@ function wsGetMessage(message){
       //   console.log("dead con!");
          //echoText.value += "User Ejected by Server...: " + "\n";
          console.log("user ejected by connectiivty server");
-         //urinbedwiththedingonow
          //wsCloseConnection();
          cleanUp();
    	   //window.location.replace("/contactafterplay.php");
@@ -171,32 +171,20 @@ function wsGetMessage(message){
          }
       }
     }
-    //echoText.value += initmsg + "\n";
-    //conSendStopMessage(); no longer need to send an initial stop msg as the bot sees a new session and resets 4 user
-    //who trusts a client neway
+
     colorOut("green");
-    //check if should alert to low light and screw time conversion
-    //need to check if bot has night vision now that multibot is go
-//    var now = new Date();
-//    var hour = now.getUTCHours();
-//    var day = now.getDay();
-//    var minutes = now.getMinutes();
-//    if(hour > 22 || hour < 14){
-//    	echoText.value += "Low Light Detected: Night Vision Engaged\n"; //its actuzlly always on
-//    }
+
+
 }
 function wsClose(message){
- //  echoText.value += "Sorry, Trashbot is Unavailable.\n";
- //echoText.value += "Connection has been terminated. Bot may be Unavailable." + "\n";
   console.log("closin ws");
-  ///  exit = true;
-  //  colorOut("red")
-
+  ws = null;
+  setTimeout(formConn, 5000);
 }
 
-function wserror(message){
-  //  echoText.value += "Error ... \n";
+function wsError(message){
   console.log("ERRORRRR");
+
 }
 
 function cleanUp(){
@@ -204,10 +192,12 @@ function cleanUp(){
    if(allClean == false){
       try {
           console.log("cleaning");
-          window.location.replace("https://thecraftyrobot.net/"); }
+          //window.location.replace("https://thecraftyrobot.net/");
+         alert("Bot Connection Unavailable - Refresh the page to try again.");
+       }
       catch(e) {
           console.log("cleanup error on redirect");
-          window.location = "https://thecraftyrobot.net/"; }
+          alert("Bot Connection Unavailable - Refresh the page to try again.");}
    }
    allClean = true;
 }
@@ -232,15 +222,6 @@ function colorOut(color){
 
 //Time for The con socket stuff
 
-//var conSocket = new WebSocket("wss://altrubots.com:8080/controlPoint");
-//var conSocket = new WebSocket("ws://localhost:8080/trashbotv1/controlPoint");
-//moved up to autopopulte var conText = document.getElementById("conText");
-
-//moved as well var controlmsg = document.getElementById("controlmsg");
-//conSocket.onopen = function(message){ conOpen(controlmsg);};
-//conSocket.onmessage = function(message){ conGetMessage(message);};
-//conSocket.onclose = function(message){ conClose(controlmsg);};
-//conSocket.onerror = function(message){ conError(controlmsg);};
 function conOpen(message){
  //   conText.value += "Connected ... \n";
    //   echoText.value += "Trashbot con channel open.\n";

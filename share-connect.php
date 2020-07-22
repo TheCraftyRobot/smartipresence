@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <title>Drive SmartiBot!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="icon" href="favicon.webp"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900|Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="remoteapp.css" rel="stylesheet" type="text/css">
+    <!-- <link rel="stylesheet" href="./style.css"/> -->
+    <meta name="theme-color" content="#3EB2E8">
+
+    <!-- Javascript for bot -->
+    <script type="text/javascript" src="app.js"></script>
+    <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
+  </head>
+  <body onload="populate()">
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light navbar-play" style="background: #521E69;">
+    <a class="navbar-brand" href="#" style="color: #ed771e;">
+      The Crafty Robot
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item pull-right">
+          <!-- <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a> -->
+          <a class="nav-link" href="https://thecraftyrobot.net">HOME</a>
+        </li>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="aw-sec4_1" id="form-section">
+    <div class="text-center">
+      <div class="clearfix"></div><br/>
+      <div class="container">
+        <img src="./crafty_robot.png" id="Status">
+        <p class="aw-title1">Your Access Key goes here:</p>
+        <div class="clearfix"></div><br/>
+        <form class="form-inline justify-content-center" role="form"/>
+          <label class="sr-only" for="botName">Enter Your Access Key</label>
+          <input type="text" class="form-control mb-2 mr-sm-2 enter" id="keyName" placeholder="Enter Key">
+          <input id="AutoPop" class="btn btn-warning mb-2" type="button" value="Connect" onclick="connect();" />
+          <br>
+          <input id="WebShare" class="btn btn-link mb-2" type="button" value="Send a Pilot Link!"  />
+        </form>
+
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div><br/>
+
+  <div id="videos">
+    <div id="subscriber"></div>
+  <div id="publisher"></div>
+  </div>
+
+<!-- <footer class="footer">
+      <div class="container">
+        <span class="text-muted">&nbsp;<?php echo date('Y'); ?>&nbsp;Altrubots</span>
+      </div>
+    </footer> -->
+<script>
+$(document).ready(function(){
+
+  // Web Share
+  $("#WebShare").on('click', function(event) {
+
+    $('#videos').css('display', 'block');
+    $('body').css('background-color', 'gray');
+    //NOTE: TODO: we need to actually validate the accessKey before sending it to prevent anyone from sharing with an incorrect access key
+    //until then I have duplicated the logic to grab the access key here, then it will be shared
+    // $('#form-section').css('display', 'none');
+    if (navigator.share) {
+      var urlB = new URL(document.URL);
+      var search_paramsB = new URLSearchParams(urlB.search);
+      var baseURL="https://altrubots.com/pilot/crafty-robot/pilot.html?botName="
+      // this will be true
+      if(search_paramsB.has('accessKey')) {
+      	var providedKeyB = search_paramsB.get('accessKey');
+      	// output : 100
+      	console.log(providedKeyB);
+         //TODOL - validate access key or move share to main flow
+         var shareURL = baseURL + providedKeyB;
+         navigator.share({
+           title: 'Send the Pilot Page!',
+           text: 'Pilot my sweet robot: ',
+           url: shareURL,
+         })
+           .then(() => console.log('Successful share'))
+           .catch((error) => console.log('Error sharing', error));
+         //TODO: base logic and error handling off validateAccessKey() return
+
+      }else{
+         console.log("failure getting param!, trying user input");
+         //no url parameter, request user to enter in access key
+         //Then pass in the provided key to the below call to validateAccessKey()
+         var providedKeyB = document.getElementById("keyName").value;
+         var shareURL = baseURL + providedKeyB;
+         navigator.share({
+           title: 'Send the Pilot Page!',
+           text: 'Come pilot and chill with my sweet robot at: ',
+           url: shareURL,
+         })
+           .then(() => console.log('Successful share'))
+           .catch((error) => console.log('Error sharing', error));
+         //TODO - ALL LOGIC
+
+      }
+
+    }
+
+  });
+});
+</script>
+</body>
+</html>

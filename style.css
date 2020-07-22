@@ -130,12 +130,12 @@ body  {
 }
 
 #publisher {
-    position: absolute;
-    width: 180px;
-    height: 120px;
-    bottom: 10px;
-    left: 10px;
+    position: relative;
+    width: 16%;
+    height: 10%;
+    bottom: 3%;
+    left: 3%;
     z-index: 20;
-    border: 3px solid white;
-    border-radius: 3px;
+    border: 1% solid white;
+    border-radius: 1%;
 }

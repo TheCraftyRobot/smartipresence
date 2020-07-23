@@ -12,7 +12,7 @@ body, html {
 }
 
 #subscriber {
-    position: absolute;
+    position: relative;
     left: 0;
     top: 0;
     width: 100%;
@@ -48,4 +48,5 @@ divider{
 
 sansserif {
   font-family: Montserrat, Helvetica, sans-serif;
+  color: #521E69;
 }

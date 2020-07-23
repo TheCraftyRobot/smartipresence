@@ -1,5 +1,5 @@
 body, html {
-    background-color: gray;
+    background-color: #b6b4a5;
     height: 100%;
 }
 
@@ -29,4 +29,14 @@ body, html {
     z-index: 10;
     border: 3px solid white;
     border-radius: 3px;
+}
+
+#h2 {
+    color: #521E69;
+}
+
+#btn btn-warning mb-2 {
+    background-color: #de7d39;
+    color: #521E69;
+    padding: 5px;
 }

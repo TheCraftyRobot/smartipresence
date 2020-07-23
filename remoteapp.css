@@ -31,17 +31,21 @@ body, html {
     border-radius: 3px;
 }
 
-#h2 {
+h2 {
     color: #521E69;
 }
 
-#btn-warning mb-2 {
+btn-warning mb-2 {
     background-color: #de7d39;
     color: #521E69;
 }
 
-#divider{
+divider{
     width:5px;
     height:auto;
     display:inline-block;
+}
+
+sansserif {
+  font-family: Montserrat, Helvetica, sans-serif;
 }

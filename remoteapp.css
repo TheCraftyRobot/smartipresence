@@ -31,12 +31,12 @@ body, html {
     border-radius: 3px;
 }
 
-h3 {
+.h3 {
     color: #521E69;
     font-family: Montserrat, Helvetica, sans-serif;
 }
 
-#btn-smb {
+.btn-smb {
     background-color: #de7d39;
     color: #521E69;
     border: 2px solid #521E69;
@@ -47,13 +47,13 @@ h3 {
     font-size: 16px;
 }
 
-#divider{
+.divider{
     width:5px;
     height:auto;
     display:inline-block;
 }
 
-sansserif {
+.sansserif {
   font-family: Montserrat, Helvetica, sans-serif;
   color: #521E69;
 }

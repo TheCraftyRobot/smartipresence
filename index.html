@@ -98,8 +98,8 @@ $(document).ready(function(){
          var providedKeyB = document.getElementById("keyName").value;
          var shareURL = baseURL + providedKeyB;
          navigator.share({
-           title: 'Pleaese come and drive my robot',
-           text: 'Just load this page and allow access to your camera and microphone: ',
+           title: 'Please come and drive my robot',
+           text: 'To drive around and chat with me, load this page and allow access to your camera and microphone: ',
            url: shareURL,
          })
            .then(() => console.log('Successful share'))

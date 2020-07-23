@@ -35,8 +35,13 @@ body, html {
     color: #521E69;
 }
 
-#btn btn-warning mb-2 {
+#btn-warning mb-2 {
     background-color: #de7d39;
     color: #521E69;
-    padding: 5px;
+}
+
+#divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
 }

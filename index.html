@@ -37,9 +37,12 @@
         <form class="form-inline justify-content-center" role="form"/>
           <label class="sr-only" for="botName">Pleaae Enter Your Access Key</label>
           <input type="text" class="form-control mb-2 mr-sm-2 enter" id="keyName" placeholder="Enter Key">
+          <div class="form-group">
           <input id="AutoPop" class="btn btn-warning mb-2" type="button" value="Put Bot Online" onclick="connect(); Puck.write('digitalWrite(D4, 0);\n analogWrite(D6, 0.0);\n digitalWrite(D11, 0);\n analogWrite(D10, 0.0);\n load();\n');" />
-          <div class="divider"/>
+          </div>
+          <div class="form-group">
           <input id="WebShare" class="btn btn-warning mb-2" type="button" value="Send a Pilot Link!"  />
+          </div>
         </form>
 
       </div>

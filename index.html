@@ -37,9 +37,9 @@
         <form class="form-inline justify-content-center" role="form"/>
           <label class="sr-only" for="botName">Pleaae Enter Your Access Key</label>
           <input type="text" class="form-control mb-2 mr-sm-2 enter" id="keyName" placeholder="Enter Key">
-          <input id="AutoPop" class="btn btn-warning mb-2" type="button" value="Put Bot Online" onclick="connect(); Puck.write('digitalWrite(D4, 0);\n analogWrite(D6, 0.0);\n digitalWrite(D11, 0);\n analogWrite(D10, 0.0);\n load();\n');" />
+          <input id="AutoPop" class="btn-smb" type="button" value="Put Bot Online" onclick="connect(); Puck.write('digitalWrite(D4, 0);\n analogWrite(D6, 0.0);\n digitalWrite(D11, 0);\n analogWrite(D10, 0.0);\n load();\n');" />
           <div class="divider"/>
-          <input id="WebShare" class="btn btn-warning mb-2" type="button" value="Send a Pilot Link!"  />
+          <input id="WebShare" class="btn-smb" type="button" value="Send a Pilot Link!"  />
         </form>
 
       </div>
@@ -71,7 +71,7 @@ $(document).ready(function(){
     if (navigator.share) {
       var urlB = new URL(document.URL);
       var search_paramsB = new URLSearchParams(urlB.search);
-      var baseURL="https://altrubots.com/pilot/crafty-robot/pilot.html?botName="
+      var baseURL="https://thecraftyrobot.github.io/smartipresence/pilot.html?botName="
       // this will be true
       if(search_paramsB.has('accessKey')) {
       	var providedKeyB = search_paramsB.get('accessKey');
@@ -95,8 +95,8 @@ $(document).ready(function(){
          var providedKeyB = document.getElementById("keyName").value;
          var shareURL = baseURL + providedKeyB;
          navigator.share({
-           title: 'Send the Pilot Page!',
-           text: 'Come pilot and chill with my sweet robot at: ',
+           title: 'Pleaese come and drive my robot',
+           text: 'Just load this page and allow access to your camera and microphone: ',
            url: shareURL,
          })
            .then(() => console.log('Successful share'))

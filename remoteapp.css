@@ -36,15 +36,11 @@ body, html {
     font-family: Montserrat, Helvetica, sans-serif;
 }
 
-.btn-smb {
+.btn btn-warning mb-2 {
     background-color: #de7d39;
     color: #521E69;
-    border: 2px solid #521E69;
+    border: 1px solid #521E69;
     padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
 }
 
 .divider{

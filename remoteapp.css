@@ -33,14 +33,21 @@ body, html {
 
 h3 {
     color: #521E69;
+    font-family: Montserrat, Helvetica, sans-serif;
 }
 
-btn-warning mb-2 {
+#btn-smb {
     background-color: #de7d39;
     color: #521E69;
+    border: 2px solid #521E69;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
 
-divider{
+#divider{
     width:5px;
     height:auto;
     display:inline-block;

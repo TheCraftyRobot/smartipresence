@@ -27,8 +27,8 @@
 
 :root {
   /*--clr-p: #ed771e;*/
-  --clr-p: #510168;
-  --clr-s: #ed771e;
+  --clr-p: #339999;
+  --clr-s: #9ad3c8;
 }
 body  {
 	margin: 0;
@@ -70,7 +70,7 @@ body  {
 	position: relative;
 	cursor: pointer;
 	overflow: hidden;
-	background: radial-gradient(#510168dd, #510168);
+	background: radial-gradient(#339999dd, #339999);
 	display: flex;
 	justify-content: center;
 	align-items: center;

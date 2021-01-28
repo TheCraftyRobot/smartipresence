@@ -1,5 +1,3 @@
-var webSocket = new WebSocket("wss://altrubots.com:8080/MultibotMavenProject/userConnEndpoint");
-
 
 //adding this up here to autopopulate
 var controlmsg = document.getElementById("controlmsg");
@@ -45,10 +43,12 @@ function updateBotname(){
 
 var message = document.getElementById("message");
 function formConn(){
-webSocket.onopen = function(message){ wsOpen(message);};
-webSocket.onmessage = function(message){ wsGetMessage(message);};
-webSocket.onclose = function(message){ wsClose(message);};
-webSocket.onerror = function(message){ wsError(message);};
+   console.log("Create Conn")
+   webSocket = new WebSocket("wss://altrubots.com:8080/MultibotMavenProject/userConnEndpoint");
+   webSocket.onopen = function(message){ wsOpen(message);};
+   webSocket.onmessage = function(message){ wsGetMessage(message);};
+   webSocket.onclose = function(message){ wsClose(message);};
+   webSocket.onerror = function(message){ wsError(message);};
 }
 
 formConn();
@@ -110,58 +110,51 @@ function wsOpen(message){
 
 function validSend(command){
    var newMessage = messageToken + command + "," + connBotName;
-//   console.log("new message: " + newMessage);
    webSocket.send(newMessage);
 
 }
 
 function wsSendMessage(){
     webSocket.send(message.value);
-   // echoText.value += "Message sent to the server : " + message.value + "\n";
-//    console.log("message sent to servver: " + message.value);
     message.value = "";
 }
 function wsCloseConnection(){
+   console.log("wsCloseConn");
     webSocket.close();
 }
 function wsGetMessage(message){
-    //echoText.value += "Connected to the Availability Server... " + "\n";
-    //console.log("recvd: " + message.data);
-    //console.log(messageCount);
+    console.log(message)
+
     if(messageCount == 0){
-   //   echoText.value += "Connected to the Availability Server... " + "\n";
+
       console.log("first msg");
       updateBotname();
       messageCount = messageCount + 1;
       validSend("0");
    }else if(messageCount == 1){
       messageCount = messageCount + 1;
-   //   console.log(" message");
+
       initialmsg = message.data;
+
+
       if(initialmsg == connKill){
-      //   console.log("dead con!");
-         //echoText.value += "User Ejected by Server...: " + "\n";
+
          console.log("user ejected by connectiivty server");
-         //wsCloseConnection();
+
          cleanUp();
-   	   //window.location.replace("/contactafterplay.php");
 
       }else{
-         console.log("initializing video");
-         //echoText.value += "Video Call Initializing... " + "\n";
-      //   echoText.value += "Close this popup and click the ignition button to play!" + "\n";
 
          var sessionInfo = message.data.split(",");
          vapiKey = sessionInfo[0];
          token = sessionInfo[1];
       	sessionId = sessionInfo[2];
-         //console.log(vapiKey);
-         //console.log(sessionId);
-      //   console.log(token);
+
          if(sessionInfo[3] == "0"){
             audioToken = sessionInfo[4];
             console.log(audioToken);
             inititalizeAudioSession(sessionId, token, vapiKey, audioToken);
+            allClean = false;
          }
          else{
             console.log(vapiKey);
@@ -169,9 +162,15 @@ function wsGetMessage(message){
             console.log(token);
             initializeSession(sessionId, token, vapiKey);
          }
+
+
+
       }
     }
-
+    if(message.data == "Hrt"){
+        validSend("Usr-Hrt")
+        console.log("Sent heart")
+    }
     colorOut("green");
 
 
@@ -179,6 +178,7 @@ function wsGetMessage(message){
 function wsClose(message){
   console.log("closin ws");
   ws = null;
+  webSocket = null;
   setTimeout(formConn, 5000);
 }
 
@@ -188,12 +188,13 @@ function wsError(message){
 }
 
 function cleanUp(){
+   console.log("clean up");
    wsCloseConnection();
    if(allClean == false){
       try {
           console.log("cleaning");
           //window.location.replace("https://thecraftyrobot.net/");
-         alert("Bot Connection Unavailable - Refresh the page to try again.");
+         alert("Bot Connection Unavailable - Attempting Recconect, or Refresh the page to try again.");
        }
       catch(e) {
           console.log("cleanup error on redirect");
@@ -221,15 +222,12 @@ function colorOut(color){
 
 
 //Time for The con socket stuff
-
 function conOpen(message){
- //   conText.value += "Connected ... \n";
-   //   echoText.value += "Trashbot con channel open.\n";
+
 
 }
 function conSendMessage(){
     conSocket.send(initMsg);
-   // conText.value += "KEY Message sendt to the server : " + initMsg + "\n";
 
 }
 
@@ -259,13 +257,11 @@ function conSendBackwardMessage(){
 	}
 	  var sender = "B";
 	  validSend(sender);
-//	    conText.value += "Message sendt to the server : " + sender + "\n";
-//	echoText.value += "Reverse sent to Server \n";
 	 if(exit){
 	    	colorOut("red");
 	    }else{
 	colorOut("green");
-//	backwardBtn.style.background="yellow";
+
 	    }
 }
 
@@ -276,13 +272,12 @@ function conSendLeftMessage(){
 	}
 	  var sender = "L";
 	  validSend(sender);
-//	    conText.value += "Message sendt to the server : " + sender + "\n";
-//	echoText.value += "Left sent to Server \n";
+
 	 if(exit){
 	    	colorOut("red");
 	    }else{
 	colorOut("green");
-//	leftBtn.style.background="yellow";
+
 	 }
 }
 
@@ -386,6 +381,7 @@ function conSendQuitMessage(){
 	 if(exit){
 	    	colorOut("red");
 	 }
+    console.log("quit");
 	cleanUp();
 }
 
@@ -398,12 +394,12 @@ function conCloseConnection(){
 	    	colorOut("red");
 	}
 //	wsCloseConnection();
+   console.log("conCloseConn 1")
     conSocket.close();
     cleanUp();
 
 }
 function conGetMessage(message){
-  //  conText.value += "Message received from to the server : " + message.data + "\n";
     //check retcodes
     switch(message.data){
       case "0":
@@ -418,41 +414,33 @@ function conGetMessage(message){
     	  break;
       case "3":
     	  //ka msg
-    	//  echoText.value += "ka";
     	  setInterval(function() {
     	      // Do something every 5 seconds
     		  var senderk = initmsg + ",K";
         	  conSocket.send(senderk);
-    		//  echoText.value += "ka run";
     	}, 5000);
     //	  echoText.value += "ka scheduled";
     	  break;
       case "9":
-    	//  echoText.value += "Your key has expired... Thanks for Playing! \n";
-    	//  echoText.value += "Go back to https://altrubots.com to see if you can regain control! \n";
       console.log("key expired!");
     	  exit = true;
     	  colorOut("red");
     	  break;
       default:
-    	  //echoText.value += "wack yo non int?";
         console.log("hmmmmm");
     }
 }
 function conClose(message){
   //  conText.value += "You gave a bad key and now it doesn't work forever ... \n";
-   //echoText.value += "The control server con is closed. Routing to home page... \n";
    console.log("closing");
    colorOut("red");
    exit = true;
    cleanUp();
-   //window.location.replace("/contactafterplay.php");
+
 
 }
 
 function conerror(message){
-  //  conText.value += "Error ... \n";
-   //echoText.value += "Error in Conn";
    console.log("error in conn");
    colorOut("red");
    exit = true;

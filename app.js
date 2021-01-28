@@ -165,10 +165,10 @@ function csGetMessage(message){
         Puck.write('go("L");\n');
          console.log("Left Increment");
       }else if(message.data == "D"){
-	Puck.write('go("LD");\n');
+  Puck.write('go("LD");\n');
          console.log("Boost");
       }else if(message.data == "U"){
-	Puck.write('go("LU");\n');
+  Puck.write('go("LU");\n');
          console.log("Up");
       }
    }

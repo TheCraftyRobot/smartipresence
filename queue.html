@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<title>Smartipresence Queue</title>
+</head>
+<body>
+<div class="container">	
+<div class="vertical-center">
+<img src="busy.svg" alt="Icon of a smartibot with a face in a phone above it, inside a triangle">
+<h2 class="place">Someone else is driving this Smartibot at the moment</h2>
+<h2 class="place">You are number: <span id="queuespot"></span> in the queue</h2>
+</div>
+</div>
+</body>
+<script src="botqueue.js"></script>
+
+
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat=swap');
+body {background-color: #631a86;}
+
+
+h2.place {
+  text-align: center;
+  color: white;
+  font: 24px Montserrat;, sans-serif;
+}
+
+.container {
+  height: 700px;
+  position: relative;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+</style>
+
+</html>
+
+

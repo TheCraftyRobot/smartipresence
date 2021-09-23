@@ -13,13 +13,12 @@
 
 
 var connSocket = new WebSocket("wss://altrubots.com:8080/MultibotMavenProject/botQueueEndpoint");
+var botWaitName = "default";
 
 connSocket.onopen = function(message){ csOpen(message);};
 connSocket.onmessage = function(message){ csGetMessage(message);};
 connSocket.onclose = function(message){ csClose(message);};
 connSocket.onerror = function(message){ csError(message);};
-
-var botWaitName = "default";
 
 
 //Websocket Conn Methods
@@ -65,7 +64,7 @@ function csGetMessage(message){
           console.log("Bot is available!");
          //The bot is Ready - grab it ASAP
          //
-      window.location.replace("https://www.smarti.app/smartipresence/pilot.html?"+botWaitName);
+      window.location.replace("https://www.smarti.app/smartipresence/pilot.html?" + botWaitName);
         //
 
       }

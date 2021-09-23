@@ -68,7 +68,7 @@ function csGetMessage(message){
           console.log("Bot is available!");
          //The bot is Ready - grab it ASAP
          //
-      //window.location.replace("https://www.smarti.app/smartipresence/pilot.html?" + botWaitName);
+      window.location.replace("https://www.smarti.app/smartipresence/pilot.html?" + botWaitName);
         //
 
       }

@@ -27,12 +27,14 @@ function csOpen(message){
     //botname is a url param
     var url = new URL(document.URL);
     //var botWaitName = "default";
+    console.log("new url");
     var search_params = new URLSearchParams(url.search);
     // this will be true
+console.log("looking for bot name");
     if(search_params.has('botName')) {
      var bname = search_params.get('botName');
       botWaitName = bname;
-	console.log("from url:" + botWaitName);
+	console.log("bot name set");
     }
     //build initial message, send it to server when you open
 	prefix = botWaitName + ",";

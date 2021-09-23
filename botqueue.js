@@ -10,7 +10,7 @@
 //respond to any heartbeat messages to keep place in line
 //update the code in the function csGetMessage to do your UI and Logic based off queue position
 
-
+(function() {
 
 var connSocket = new WebSocket("wss://altrubots.com:8080/MultibotMavenProject/botQueueEndpoint");
 var botWaitName = "default";
@@ -80,3 +80,5 @@ function csGetMessage(message){
 function csClose(message){
    console.log("Connection terminated");
 }
+	
+})();  

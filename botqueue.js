@@ -59,7 +59,8 @@ function csGetMessage(message){
       var json = JSON.parse(message.data);
       console.log("parsing json");
       console.log(json.queue);
-      document.getElementById("queuespot").innerHTML = json.queue;
+      console.log(botWaitName);
+      document.getElementById("queuespot").innerHTML = json.queue;	
       if(json.queue == "1"){
           console.log("Bot is available!");
          //The bot is Ready - grab it ASAP

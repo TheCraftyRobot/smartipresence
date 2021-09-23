@@ -32,6 +32,7 @@ function csOpen(message){
     if(search_params.has('botName')) {
      var bname = search_params.get('botName');
       botWaitName = bname;
+	console.log("from url:" + botWaitName);
     }
     //build initial message, send it to server when you open
 	prefix = botWaitName + ",";

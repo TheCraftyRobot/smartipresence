@@ -32,6 +32,7 @@ function csOpen(message){
     // this will be true
 console.log("looking for bot name");
     if(search_params.has('botName')) {
+console.log("got bot name");
      var bname = search_params.get('botName');
       botWaitName = bname;
 	console.log("bot name set");
